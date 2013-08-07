@@ -10,8 +10,8 @@ use vars qw( %Lexicon );
 
 %Lexicon = (
 
+    # config panel
     'description of LFTP'   => '他のサーバにファイルを転送します。',
-
     'LFTP enabled:'         => 'プラグインを利用する',
     'LFTP cmd:'             => 'LFTPコマンドのPath(必須)',
     'LFTP method:'          => '接続方式(必須)',
@@ -36,11 +36,16 @@ use vars qw( %Lexicon );
     'Hint setting:'         => 'LFTPのSetコマンドを記述してください。改行はせず「 ; 」で区切ってください。',
     'Hint mirror_opt:'      => 'mirrorコマンドのオプションを設定してください。転送を除外したいディレクトリはここで設定してください。',
 
+    # menu
     'lftp Upload Site' => 'ウェブサイトをアップロード',
     'lftp Upload Blog' => 'ブログをアップロード',
 
+    # view
+    'Upload Site' => 'アップロード',
+    'Upload Blog' => 'アップロード',
     'Dry run' => 'ファイルを確認',
     'Show what would have been transferred.' => '転送されるファイルを確認する（転送は行われません）',
+    'Do Upload' => '転送する'
 
 
 );
