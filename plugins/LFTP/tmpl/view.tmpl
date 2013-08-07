@@ -1,0 +1,31 @@
+<mt:setvarblock name="page_title"><mt:if name="is_website"><__trans phrase="Upload Site"><mt:else><__trans phrase="Upload Blog"></mt:if></mt:setvarblock>
+<mt:setvar name="position_actions_bottom" value="1" />
+<mt:setvar name="lftp" value="1">
+<mt:include name="include/header.tmpl" />
+
+<div id="rsync-panel">
+  <form method="post" action="<mt:var name="script_url">" target="_blank">
+    <input type="hidden" name="__mode" value="lftp_upload" />
+    <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" />
+    <mt:if name="blog_id">
+      <input type="hidden" id="blog_id" name="blog_id" value="<mt:var name="blog_id">" />
+    </mt:if>
+    <mtapp:setting
+       id="dry_run"
+       label="<__trans phrase="Dry run">">
+      <input type="checkbox" id="dryrun" name="dryrun" value="1" />
+      <label for="dryrun"><__trans phrase="Show what would have been transferred." /></label>
+    </mtapp:setting>
+    <mt:setvarblock name="action_buttons">
+      <button
+         type="submit"
+         accesskey="b"
+         title="<__trans phrase="Do LFTP">"
+         class="action primary-button"
+         ><__trans phrase="Do Upload Site"></button>
+    </mt:setvarblock>
+    <mt:include name="include/actions_bar.tmpl" bar_position="bottom" hide_pager="1" settings_bar="1">
+  </form>
+</div>
+
+<mt:include name="include/footer.tmpl">

@@ -1,0 +1,56 @@
+id: lftp
+key: MT::Plugin::LFTP
+name: LFTP
+version: 0.2
+description: <MT_TRANS phrase='description of LFTP'>
+doc_link: http://www.allianceport.jp/
+author_name: Takuji Tokiwa
+author_link: http://www.allianceport.jp/
+l10n_class: LFTP::L10N
+blog_config_template: blog_config_template.tmpl
+settings:
+    lftp_enabled:
+        default: 0
+    lftp_cmd:
+        default: /usr/bin/lftp
+    lftp_method:
+        default: sftp
+    lftp_host:
+        default:
+    lftp_port:
+        default: 22
+    lftp_user:
+        default:
+    lftp_password:
+        default:
+    lftp_setting:
+        default:
+    lftp_mirror_opt:
+        default: "-x .htaccess"
+    lftp_local_dir:
+        default:
+    lftp_remote_dir:
+        default:
+applications:
+    cms:
+        menus:
+            tools:lftp_website:
+                label: lftp Upload Site
+                order: 10000
+                mode: lftp_view
+                permission: administer_blog
+                view:
+                    - website
+                condition: $LFTP::LFTP::CMS::menu_status
+            tools:lftp_blog:
+                label: lftp Upload Blog
+                order: 10001
+                mode: lftp_view
+                permission: administer_blog
+                view:
+                    - blog
+                condition: $LFTP::LFTP::CMS::menu_status
+        methods:
+            lftp_view: $LFTP::LFTP::CMS::view
+            lftp_upload: $LFTP::LFTP::CMS::do_upload
+
